@@ -7,6 +7,12 @@ import App from '../App';
 // RTL imports
 import { cleanup } from '@testing-library/react';
 
+// Redux imports
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import searchReducer from '../reducers/searchReducer';
+const store = createStore(searchReducer, []);
+
 afterEach(cleanup);
 
 // Mock ReactDOM.render
@@ -29,6 +35,11 @@ describe('index.js testing suite', () => {
 
     // Tests that ReactDOM.render has been called, and with App and the root node
     expect(ReactDOM.render).toHaveBeenCalledTimes(1);
-    expect(ReactDOM.render).toHaveBeenLastCalledWith(<App />, root);
+    expect(ReactDOM.render).toHaveBeenCalledWith(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      root
+    );
   });
 });
