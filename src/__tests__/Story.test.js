@@ -3,12 +3,9 @@ import React from 'react';
 // Component imports
 import Story from '../components/Story';
 
-// Redux testing imports
-// import configureStore from 'redux-mock-store';
-// import { Provider } from 'react-redux';
-
 // RTL imports
-import { render, cleanup } from '@testing-library/react';
+// import { render, cleanup } from '@testing-library/react';
+import { render, cleanup } from '../utils/test/testUtils';
 
 afterEach(cleanup);
 
