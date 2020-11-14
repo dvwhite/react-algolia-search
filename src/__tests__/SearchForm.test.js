@@ -93,11 +93,12 @@ describe('the SearchForm testing suite', () => {
     input.value = 'not important';
     expect(input.value).toBe('not important');
 
-    // Assert that the text clears on form submit
+    // Submitting the form should clear the input value
     fireEvent.click(button);
 
+    // Assert the input value resets to an empty string after the form submits
     await waitFor(async () => {
-      await expect(input).toBeEmptyDOMElement(); // state should reset on submit
+      await expect(input).toBeEmptyDOMElement();
     });
   });
 
@@ -118,6 +119,7 @@ describe('the SearchForm testing suite', () => {
       await expect(input).toBeEmptyDOMElement();
     });
 
+    // Assert that the test object was dispatched to Redux
     expect(setResults).toHaveBeenCalledTimes(1);
     expect(setResults).toHaveBeenCalledWith(populatedTestObject.data.hits);
   });
