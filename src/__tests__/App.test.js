@@ -4,12 +4,8 @@ import axios from 'axios';
 // Component imports
 import App from '../App';
 
-// Redux testing imports
-// import configureStore from 'redux-mock-store';
-// import { Provider } from 'react-redux';
-
 // RTL imports
-import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
+import { render, cleanup, fireEvent, waitFor } from '../utils/test/testUtils';
 
 afterEach(cleanup);
 

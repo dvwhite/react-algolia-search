@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../index.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../index.css';
+
+// Redux imports
+import { addSearchTerm } from '../actions/index';
+import { useDispatch } from 'react-redux';
 
 // The form state used to initialize the form on fresh renders
 const initialFormState = {
-  searchTerms: "",
+  searchTerms: '',
 };
 
 const SearchForm = ({ setResults }) => {
   const [form, setForm] = useState(initialFormState);
+  const dispatch = useDispatch();
 
   // Form change handler to save user input to component state
   // The component state is synced with the input
@@ -24,6 +29,9 @@ const SearchForm = ({ setResults }) => {
   const handleSubmit = (event) => {
     // Prevent unwanted page refreshes after the form submits
     event.preventDefault();
+
+    // Save search terms in the redux store
+    dispatch(addSearchTerm(form.searchTerms));
 
     // Send a request to the API endpoint and store in parent state
     // using setResults, which is derived from the parent component
@@ -41,19 +49,19 @@ const SearchForm = ({ setResults }) => {
   };
 
   return (
-    <div className="search-container">
+    <div className='search-container'>
       <form onSubmit={handleSubmit}>
         <input
-          name="searchTerms"
-          className="search-input"
-          type="text"
-          placeholder="Search Hacker News..."
+          name='searchTerms'
+          className='search-input'
+          type='text'
+          placeholder='Search Hacker News...'
           value={form.searchTerms}
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type='submit'>Search</button>
       </form>
-      <div className="separator"></div>
+      <div className='separator'></div>
     </div>
   );
 };

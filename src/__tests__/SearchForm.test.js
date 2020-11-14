@@ -4,12 +4,8 @@ import axios from 'axios';
 // Component imports
 import SearchForm from '../components/SearchForm';
 
-// Redux testing imports
-// import configureStore from 'redux-mock-store';
-// import { Provider } from 'react-redux';
-
 // RTL imports
-import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
+import { render, cleanup, fireEvent, waitFor } from '../utils/test/testUtils';
 
 afterEach(cleanup);
 
@@ -111,7 +107,6 @@ describe('the SearchForm testing suite', () => {
     const { getByRole, getByPlaceholderText } = render(
       <SearchForm setResults={setResults} />
     );
-
     // Get a reference to the form elements
     const button = getByRole('button');
     const input = getByPlaceholderText(/search hacker news.../i);
