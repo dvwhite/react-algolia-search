@@ -1,13 +1,13 @@
-import React from "react";
-import "../index.css";
+import React from 'react';
+import '../index.css';
 
 // Component imports
-import Story from "./Story";
+import Story from './Story';
 
 const StoryList = ({ stories }) => {
   // Display one story component for each object in the storys prop
   return (
-    <div className="stories">
+    <div className='stories' data-testid='story-list-container'>
       {stories?.map((story, idx) => {
         return <Story data={{ ...story, idx }} key={idx} />;
       })}
