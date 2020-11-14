@@ -30,6 +30,9 @@ const SearchForm = ({ setResults }) => {
     // Prevent unwanted page refreshes after the form submits
     event.preventDefault();
 
+    // Save search terms in the redux store
+    dispatch(addSearchTerm(form.searchTerms));
+
     // Send a request to the API endpoint and store in parent state
     // using setResults, which is derived from the parent component
     const queryString = `?query=${form.searchTerms}&tags=story`;
