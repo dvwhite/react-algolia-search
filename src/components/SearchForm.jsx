@@ -18,7 +18,6 @@ const SearchForm = ({ setResults }) => {
   // Form change handler to save user input to component state
   // The component state is synced with the input
   const handleChange = (event) => {
-    event.preventDefault();
     setForm({
       ...form,
       [event.target.name]: event.target.value,
