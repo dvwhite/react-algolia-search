@@ -45,16 +45,28 @@ code {
 }
 
 .navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background: #FF6600;
   color: #002200;
-  width: 99%;
-  padding: 0.1% 0.5%;
+  width: 100%;
+  padding: 0.1% 0%;
   margin: 0 auto;
 }
 
 .navbar h3 {
   margin: 0;
-  padding: 0 1%;
+  padding: 0 0.7%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 1.5px;
+  border: 1px solid white;
 }
 
 .stories {
