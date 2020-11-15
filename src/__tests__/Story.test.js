@@ -26,5 +26,16 @@ describe('the Story test suite', () => {
     // Assert that the story renders with the test data
     const storyTitle = getByText(/jokes/i);
     expect(storyTitle).toBeInTheDocument();
+
+    const storyText = getByText(/joking/i);
+    expect(storyText).toBeInTheDocument();
+  });
+
+  test('only displays the story-text div if data.story_text is truthy', () => {
+    const noStoryText = { ...testStory, story_text: '' };
+    const { queryByTestId } = render(<Story data={noStoryText} />);
+
+    const storyText = queryByTestId('story-text');
+    expect(storyText).not.toBeInTheDocument();
   });
 });
