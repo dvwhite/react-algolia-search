@@ -21,9 +21,8 @@ function replaceStoryText(strToParse) {
     for (let key in replacements) {
       strToParse = strToParse.split(key).join(replacements[key]);
     }
-
-    return strToParse;
   }
+  return strToParse;
 }
 
 export { replaceStoryText };
