@@ -14,14 +14,14 @@ The app contains the App, SearchForm, Card and CardList components. It allows th
 
 Navigate to the directory where you'd like to store the app, and enter the following command into git bash:
 
-`git clone https://github.com/dvwhite/react-redux-search`
+`git clone https://github.com/dvwhite/react-algolia-search`
 
 This will copy the repo into a folder in the directory you navigated to in git bash.
 
 ### 2. Run Installation Commands
 
 Ensure that you have installed the requirements to run `npm`. The following article will walk you through first time installation:
-(Installing Nodejs and npm)[https://docs.npmjs.com/downloading-and-installing-node-js-and-npm].
+[Installing Nodejs and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 In the terminal or git bash, run the following command:
 
@@ -45,7 +45,7 @@ The Hacker News Algolia API Search app utilizes the following technologies:
 
 - React - To render the user interface using component-based development
 - Redux - To persist search terms entered by the user
-- The Hacker News Algolia API ((https://hn.algolia.com/api)[https://hn.algolia.com/api])
+- The Hacker News Algolia API ([https://hn.algolia.com/api](https://hn.algolia.com/api))
 - Node/npm - To install and manage npm packages
 
 ## Project Requirements
