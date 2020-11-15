@@ -19,7 +19,7 @@ const Story = ({ data }) => {
         </div>
         <div>
           {data.story_text ? (
-            <div className={'story-text'}>
+            <div className={'story-text'} data-testid='story-text'>
               {ReactHtmlParser(replaceStoryText(data?.story_text))}
             </div>
           ) : null}

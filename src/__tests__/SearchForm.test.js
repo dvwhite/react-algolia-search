@@ -93,11 +93,12 @@ describe('the SearchForm testing suite', () => {
     input.value = 'not important';
     expect(input.value).toBe('not important');
 
-    // Assert that the text clears on form submit
+    // Submitting the form should clear the input value
     fireEvent.click(button);
 
+    // Assert the input value resets to an empty string after the form submits
     await waitFor(async () => {
-      await expect(input).toBeEmptyDOMElement(); // state should reset on submit
+      await expect(input).toBeEmptyDOMElement();
     });
   });
 
@@ -118,7 +119,46 @@ describe('the SearchForm testing suite', () => {
       await expect(input).toBeEmptyDOMElement();
     });
 
+    // Assert that the test object was dispatched to Redux
     expect(setResults).toHaveBeenCalledTimes(1);
     expect(setResults).toHaveBeenCalledWith(populatedTestObject.data.hits);
+  });
+
+  test('it calls console.error if API req resolves to an error', async () => {
+    // Mock the console error
+    const mockConsoleError = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+
+    // Mock axios.get
+    const errorMessage = 'failed API call';
+    const error = new Error(errorMessage);
+    axios.get.mockRejectedValue(error);
+
+    const { getByRole, getByPlaceholderText } = render(
+      <SearchForm setResults={setResults} />
+    );
+
+    // Get a reference to the form elements
+    const button = getByRole('button');
+    const input = getByPlaceholderText(/search hacker news.../i);
+    expect(input).toBeEmptyDOMElement(); // should initialize empty
+
+    // Set the input value because it's a controlled component
+    input.value = 'test value';
+    expect(input.value).toBe('test value');
+
+    // Submitting the form should clear the input value
+    fireEvent.click(button);
+
+    // Assert the input value resets to an empty string after the form submits
+    await waitFor(async () => {
+      await expect(input).toBeEmptyDOMElement();
+    });
+
+    // Assert that the mocks were all called
+    expect(mockConsoleError).toHaveBeenCalledTimes(1);
+    expect(mockConsoleError).toHaveBeenCalledWith(error);
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });

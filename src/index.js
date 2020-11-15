@@ -8,7 +8,7 @@ import App from './App';
 // Redux imports
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import searchReducer from './reducers/searchReducer';
+import { searchReducer } from './reducers/searchReducer';
 
 // The redux store
 const store = createStore(searchReducer);

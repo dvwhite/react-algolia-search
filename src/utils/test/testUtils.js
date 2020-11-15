@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 // Reducer imports
-import searchReducer from '../../reducers/searchReducer';
+import { searchReducer } from '../../reducers/searchReducer';
 
 // Custom render function overrides the render function in RTL
 // It wraps tested components in the Provider component from react-redux
