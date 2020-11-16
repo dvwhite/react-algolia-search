@@ -34,8 +34,10 @@ const SearchForm = ({ setResults }) => {
 
     // Send a request to the API endpoint and store in parent state
     // using setResults, which is derived from the parent component
+    const apiURI =
+      process.env.REACT_APP_API_URI || 'https://hn.algolia.com/api/v1/search';
     const queryString = `?query=${form.searchTerms}&tags=story`;
-    const unencodedURI = process.env.REACT_APP_API_URI + queryString;
+    const unencodedURI = apiURI + queryString;
     const encodedURI = encodeURI(unencodedURI);
     axios
       .get(encodedURI)
