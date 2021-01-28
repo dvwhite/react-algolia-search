@@ -6,7 +6,7 @@ If you've ever wanted a simple React search component for the Hacker News Algoli
 
 ## Functionality
 
-The app contains the App, SearchForm, Card and CardList components. It allows the user to enter text in the input of the SearchForm and it returns and displays search results from the Hacker News Algolia API.
+The app contains the App, SearchForm, Navbar and SearchForm, StoryList and Story components. The app allows the user to enter text in the input of the SearchForm and it returns and displays search results from the Hacker News Algolia API.
 
 ## Installation Instructions
 
